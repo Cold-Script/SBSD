@@ -72,3 +72,20 @@ Main2:AddToggle("",{Text="No Effect 3D",Callback=function(value)
   game.ReplicatedStorage.Effects3D:Disconnect()
      end
  end})
+Main3 = Main:AddLeftGroupbox("Players")
+Main3:AddButton({Text="×3 WalkSpeed Present",Func=function()
+ game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 48
+ end})
+Main3:AddButton({Text="×3 JumpPower Present",Func=function()
+ game.Players.LocalPlayer.Character.Humanoid.JumpPower = 150
+ end})
+Main3:AddButton({Text="Max Field",Func=function()
+ workspace.CurrentCamera.FieldOfView = 120
+ end})
+Main3:AddButton({Text="Reset Corfigs Players",DoubleClick=true,Func=function()
+ game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+wait()
+ game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+wait()
+ workspace.CurrentCamera.FieldOfView = 70
+ end})

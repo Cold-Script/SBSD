@@ -1,0 +1,74 @@
+local repo = 'https://raw.githubusercontent.com/mstudio45/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+local Options = getgenv().Linoria.Options
+local Toggles = getgenv().Linoria.Toggles
+
+local Window = Library:CreateWindow({
+	Title = 'YOU HUB | [upd 5.1] superbox siege defense',
+	Center = true,
+	AutoShow = true,
+	Resizable = true,
+	ShowCustomCursor = true,
+	TabPadding = 8,
+	MenuFadeTime = 0.3
+})
+Main = Window:AddTab("Main")
+Main1 = Main:AddLeftGroupbox("Lighting")
+Main1:AddToggle("",{Text="Fullbright",Callback=function(value)
+  if value then
+ local lighting = game.Lighting
+		lighting.Brightness = 2
+		lighting.ClockTime = 14
+		lighting.GlobalShadows = false
+		lighting.OutdoorAmbient = Color3.fromRGB(255,255,255)
+  else
+  local lighting = game.Lighting
+		lighting.Brightness = 1
+		lighting.ClockTime = 14
+		lighting.GlobalShadows = true
+		lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+  end
+ end})
+Main1:AddToggle("",{Text="No Fog",Callback=function(value)
+  if value then
+ local lighting = game.Lighting
+		lighting.FogEnd = 9e9
+  else
+  local lighting = game.Lighting
+		lighting.FogEnd = 200
+     end
+ end})
+Main1:AddToggle("",{Text="No Effect Sky",Callback=function(value)
+  if value then
+ local lighting = game.Lighting
+		lighting.Sky:Destroy()
+  else
+  local lighting = game.Lighting
+		lighting.Sky:Disconnect()
+     end
+ end})
+Main2 = Main:AddRightGroupbox("FPS")
+Main2:AddToggle("",{Text="No Save Animation",Callback=function(value)
+  if value then
+ workspace.AnimSaves:Destroy()
+  else
+  workspace.AnimSaves:Disconnect()
+     end
+ end})
+Main2:AddToggle("",{Text="No Water",Callback=function(value)
+  if value then
+ workspace.Water:Destroy()
+  else
+  workspace.Water:Disconnect()
+     end
+ end})
+Main2:AddToggle("",{Text="No Effect 3D",Callback=function(value)
+  if value then
+ game.ReplicatedStorage.Effects3D:Destroy()
+  else
+  game.ReplicatedStorage.Effects3D:Disconnect()
+     end
+ end})

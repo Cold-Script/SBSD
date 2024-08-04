@@ -60,9 +60,9 @@ Main2:AddToggle("",{Text="No Save Animation",Callback=function(value)
  end})
 Main2:AddToggle("",{Text="No Water",Callback=function(value)
   if value then
- workspace.Water:Destroy()
+ workspace.water:Destroy()
   else
-  workspace.Water:Disconnect()
+  workspace.water:Disconnect()
      end
  end})
 Main2:AddToggle("",{Text="No Effect 3D",Callback=function(value)
@@ -72,6 +72,9 @@ Main2:AddToggle("",{Text="No Effect 3D",Callback=function(value)
   game.ReplicatedStorage.Effects3D:Disconnect()
      end
  end})
+Main2:AddButton({Text="Untra Boost FPS",Func=function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Cold-Script/UpgradedFPS/main/MiscSBSD.Loaded"))()
+end})
 Main3 = Main:AddLeftGroupbox("Players")
 Main3:AddButton({Text="×3 WalkSpeed Present",Func=function()
  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 48
@@ -89,3 +92,31 @@ wait()
 wait()
  workspace.CurrentCamera.FieldOfView = 70
  end})
+Main4 = Main:AddRightGroupbox("Troll")
+Main4:AddButton({Text="HipHeight Serect (15 second)",Func=function()
+local plr = game.Players.LocalPlayer.Character.Humanoid
+plr.HipHeight = 10
+wait(1.5)
+plr.HipHeight = 15
+wait(1.5)
+plr.HipHeight = 20
+wait(1.5)
+plr.HipHeight = 25
+wait(1.5)
+plr.HipHeight = 30
+wait(1.5)
+plr.HipHeight = 35
+wait(1.5)
+plr.HipHeight = 40
+wait(1.5)
+plr.HipHeight = 45
+wait(1.5)
+plr.HipHeight = 50
+wait(1.5)
+plr.HipHeight = 55
+wait(1.5)
+plr.HipHeight = 60
+wait(1.5)
+plr.HipHeight = 1.25
+Library:Notify("[ YOU HUB ] : Delete HipHeight Serect")
+end})
